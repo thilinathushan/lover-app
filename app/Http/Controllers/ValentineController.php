@@ -10,4 +10,14 @@ class ValentineController extends Controller
     {
         return view('welcome');
     }
+
+    public function privacyPolicy()
+    {
+        return view('policies.privacy-policy');
+    }
+
+    public function termsOfService()
+    {
+        return view('policies.terms-service');
+    }
 }

@@ -1,47 +1,56 @@
-<!doctype html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Love You 🥰</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
+@section('content')
 
-<body>
-    <div class="container">
-        <div class="d-flex align-items-center justify-content-center min-vh-100">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 mx-auto text-center">
-                        <livewire:valentine.display-gif />
-                        <livewire:valentine.display-text />
-                    </div>
-                </div>
+    <div class="container text-center">
+        <livewire:valentine.display-text />
+        <p class="mb-5 text-muted">Let’s make this Valentine’s Day unforgettable!</p>
 
-                <div class="row mx-auto">
-                    <div class="mt-4 d-inline-flex justify-content-center align-items-center" x-data="{ show: true }" @hideYesNo.window="show = false">
-                        <livewire:valentine.yes-btn />
-                        <livewire:valentine.no-btn msg="No" />
-                    </div>
-                </div>
+        <livewire:valentine.display-gif />
+
+        <!-- Google Login Button -->
+        <div class="row mt-5">
+            <div class="mx-auto">
+                <a href="{{ route('google.login') }}" class="google-btn">
+                    <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo">
+                    Continue with Google
+                </a>
             </div>
         </div>
     </div>
+@endsection
 
-    <script>
-        document.addEventListener('livewire:initialized', () =>{
-            let screenSize = screen.width;
-            console.log('screenSize:', screenSize);
-            Livewire.dispatch('screenSize',  {ss: screenSize} )
-        });
-    </script>
+@section('footer')
+    <x-footer />
+@endsection
 
+@push('styles')
+    <style>
+        .google-btn {
+            /* display: flex; */
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            color: #757575;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 500;
+            border: 1px solid #dadce0;
+            border-radius: 4px;
+            padding: 10px 15px;
+            width: 250px;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+        }
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
-</body>
+        .google-btn img {
+            width: 20px;
+            margin-right: 10px;
+        }
 
-</html>
+        .google-btn:hover {
+            background-color: #f8f9fa;
+            border-color: #c1c1c1;
+        }
+    </style>
+@endpush
+

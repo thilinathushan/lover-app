@@ -11,6 +11,7 @@ class YesBtn extends Component
     public $shouldHideNoButton = false;
     public $screenWidth = 0;
     public $saidYes = false;
+    public $token;
 
     #[On('screenSize')]
     public function handleScreenSize($ss)
