@@ -32,18 +32,18 @@
             <div class="card-body py-5 px-3 mt-5">
                 <!-- Social Media Share Buttons -->
                 <div class="d-flex justify-content-center mb-4 flex-wrap">
-                    <a href="#" class="btn btn-twitter me-2 mb-2"
+                    <button class="btn btn-twitter me-2 mb-2" onclick="copyLink()"
                         style="border-radius: 30px; background-color: #1DA1F2; color: white;">
                         <i class="bi bi-twitter"></i> Twitter
-                    </a>
-                    <a href="#" class="btn btn-facebook me-2 mb-2"
+                    </button>
+                    <button class="btn btn-facebook me-2 mb-2" onclick="copyLink()"
                         style="border-radius: 30px; background-color: #1877F2; color: white;">
                         <i class="bi bi-facebook"></i> Facebook
-                    </a>
-                    <a href="#" class="btn btn-whatsapp mb-2"
+                    </button>
+                    <button class="btn btn-whatsapp mb-2" onclick="copyLink()"
                         style="border-radius: 30px; background-color: #25D366; color: white;">
                         <i class="bi bi-whatsapp"></i> WhatsApp
-                    </a>
+                    </button>
                 </div>
 
                 <!-- Copy Link -->

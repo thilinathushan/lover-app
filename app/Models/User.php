@@ -46,4 +46,19 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function partner()
+    {
+        return $this->hasOne(PartnerInfo::class);
+    }
+
+    public function proposal()
+    {
+        return $this->hasOne(Proposal::class);
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->email === 'thilinathushan2u@gmail.com';
+    }
 }

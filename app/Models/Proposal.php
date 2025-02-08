@@ -13,4 +13,9 @@ class Proposal extends Model
         'status',
         'custom_message',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

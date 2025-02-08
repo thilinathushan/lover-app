@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 
-Route::get('/', [ValentineController::class, 'index']);
+Route::get('/', [ValentineController::class, 'index'])->middleware('checkCommingSoon');
+Route::get('/comming-soon', [ValentineController::class, 'commingSoon'])->name('commingSoon');
 
 Route::get('/auth/google', function () {
     return Socialite::driver('google')->redirect();
@@ -37,7 +38,6 @@ Route::get('/auth/google/callback', function () {
 
 Route::post('/auth/google/logout', [DashboardController::class, 'signOut'])->name('google.logout');
 
-
 Route::middleware(['auth'])->group(function () {
     Route::get('/personalize', [ProposalController::class, 'showPersonalizationForm'])->name('personalize');
     Route::post('/personalize', [ProposalController::class, 'storePersonalization']);
@@ -59,3 +59,5 @@ Route::get('share-platform/{token}', [DashboardController::class, 'sharePlatform
 // Policies
 Route::get('privacy-policy', [ValentineController::class, 'privacyPolicy'])->name('privacyPolicy');
 Route::get('terms-of-service', [ValentineController::class, 'termsOfService'])->name('termsOfService');
+
+Route::get('/love-admin-dashboard', [ValentineController::class, 'adminDashboard'])->name('adminDashboard')->middleware(['auth', 'admin.email']);

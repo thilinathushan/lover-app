@@ -11,6 +11,15 @@
             </button>
         </form>
     </div>
+    @if (Auth::user()->isAdmin())
+        <div class="mt-3 d-flex justify-content-end">
+            <a href="{{ route('adminDashboard') }}" class="btn btn-outline-primary rounded-pill px-4">
+                <i class="bi bi-house-check me-2"></i>
+                Admin Dashboard
+            </a>
+        </div>
+    @endif
+
     <div class="container mx-auto p-5 text-center">
         <!-- Header Section -->
         <h1 class="fw-bold fs-1 mb-3">Hi, {{ $userData->name }}</h1>

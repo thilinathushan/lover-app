@@ -27,6 +27,11 @@ class DashboardController extends Controller
 
     public function shareLinkIndex()
     {
+        $userData = Auth::user();
+        $partnerDetails = PartnerInfo::where('user_id', $userData->id)->first();
+        if (!isset($partnerDetails)) {
+            return redirect()->route('dashboard')->with('error', 'Please Add Your Partner Details First.');
+        }
         return view('sharelink');
     }
 
@@ -115,7 +120,7 @@ class DashboardController extends Controller
         $userData = Auth::user();
         $proposal = Proposal::where('user_id', $userData->id)->first();
         if (!$proposal) {
-            return redirect()->route('dashboard')->with('error', 'No response found');
+            return redirect()->route('dashboard')->with('error', 'No Response Found.');
         }
         $partner = PartnerInfo::where('id', $proposal->partner_info_id)->first();
         return view('view-response', compact('proposal', 'partner'));

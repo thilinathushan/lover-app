@@ -115,7 +115,7 @@
 
     <script>
         function copyToClipboard() {
-            navigator.clipboard.writeText('www.love.thilinathushan.dev');
+            navigator.clipboard.writeText('https://love.thilinathushan.dev');
             Swal.fire({
                 icon: 'success',
                 title: '💖 Link Copied!',
