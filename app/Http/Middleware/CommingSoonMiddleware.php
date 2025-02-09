@@ -15,7 +15,7 @@ class CommingSoonMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $commingSoon = true;
+        $commingSoon = false;
 
         if ($commingSoon) {
             return redirect()->route('commingSoon');

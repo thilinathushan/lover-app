@@ -28,4 +28,9 @@ class ValentineController extends Controller
     {
         return view('comming-soon');
     }
+
+    public function landingPage()
+    {
+        return view('landing');
+    }
 }

@@ -1,15 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="container text-center">
+        <img class="mt-5" src="{{ asset('letter.png') }}" alt="app-logo" style="width: 180px;">
+        <h3 class="display-5 fw-bold">Be My Valentine</h3>
+        <p class="mb-3 text-muted">Let’s make this Valentine’s Day unforgettable!</p>
+
         <livewire:valentine.display-text />
-        <p class="mb-5 text-muted">Let’s make this Valentine’s Day unforgettable!</p>
 
         <livewire:valentine.display-gif />
 
         <!-- Google Login Button -->
-        <div class="row mt-5">
+        <div class="row mt-3">
             <div class="mx-auto">
                 <a href="{{ route('google.login') }}" class="google-btn">
                     <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo">
@@ -53,4 +55,3 @@
         }
     </style>
 @endpush
-

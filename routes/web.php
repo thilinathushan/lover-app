@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
 
-Route::get('/', [ValentineController::class, 'index'])->middleware('checkCommingSoon');
+Route::get('/', [ValentineController::class, 'landingPage'])->middleware('checkCommingSoon');
+Route::get('/welcome', [ValentineController::class, 'index'])->name('welcomePage');
 Route::get('/comming-soon', [ValentineController::class, 'commingSoon'])->name('commingSoon');
 
 Route::get('/auth/google', function () {
